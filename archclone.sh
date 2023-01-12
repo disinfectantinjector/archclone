@@ -1,6 +1,6 @@
 #!/bin/bash
 
-repo=$(pacman --color=never -Ss ^"$1"$ | grep ".*/$1 " | cut -d'/' -f1)
+repo=$(pacman --color=never -Ss ^"$1"$ | grep -v testing | grep ".*/$1 " | cut -d'/' -f1)
 
 case $repo in
     core | extra) repo="packages";;
